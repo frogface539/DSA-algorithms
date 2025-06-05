@@ -25,7 +25,7 @@ void BinarySearch(vector<int>& arr , int element){
     cout << "Element not found....";
 }
 
-void firstOccurence(vector<int>& arr , int target){
+int firstOccurence(vector<int>& arr , int target){
 
     int s = 0;
     int e = arr.size() - 1;
@@ -47,10 +47,10 @@ void firstOccurence(vector<int>& arr , int target){
             s = mid + 1;
         }
     }
-    cout << "First Occurence at: "<<ans<<endl;
+    return ans;
 }
 
-void lastOccuerence(vector<int>& arr , int target){
+int lastOccuerence(vector<int>& arr , int target){
 
     int s = 0;
     int e = arr.size() - 1;
@@ -74,12 +74,15 @@ void lastOccuerence(vector<int>& arr , int target){
             s = mid + 1;
         }
     }
-    cout << "Last Occurence at: "<<ans<<endl;
+    return ans;
 }
 
 int main(){
     vector<int>data = {1,2,2,2,2,2,3,4,5,6,7};
     BinarySearch(data,2);
-    firstOccurence(data,2);
-    lastOccuerence(data,2);
+    int first = firstOccurence(data,2);
+    int last = lastOccuerence(data,2);
+    cout << "first Occurence: " << first<<endl;
+    cout << "last Occurence: " << last<<endl;
+    cout << "Total Occurence: " << (last - first) + 1<<endl;
 }
